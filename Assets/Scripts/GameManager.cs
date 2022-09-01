@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private TMP_Text scoreText;
     private bool isGameOver = false;
     private int score = 0;
 
@@ -22,7 +24,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void GameOver()
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour
         {
             score++;
 
-            print(score);
+            scoreText.text = score.ToString();
         }
     }
 }
