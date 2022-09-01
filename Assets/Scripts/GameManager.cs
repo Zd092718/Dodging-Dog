@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private bool isGameOver = false;
+    private int score = 0;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void GameOver()
@@ -30,5 +31,15 @@ public class GameManager : MonoBehaviour
 
         ObstacleSpawner obstacleSpawner = GameObject.Find("ObstacleSpawner").GetComponent<ObstacleSpawner>();
         obstacleSpawner.StopSpawning();
+    }
+
+    public void IncrementScore()
+    {
+        if (!isGameOver)
+        {
+            score++;
+
+            print(score);
+        }
     }
 }
