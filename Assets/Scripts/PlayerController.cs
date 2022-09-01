@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 150f;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -26,12 +28,14 @@ public class PlayerController : MonoBehaviour
             {
                 //move left
                 rb.velocity = Vector2.left * moveSpeed * Time.deltaTime;
+                spriteRenderer.flipX = true;
 
             }
             else
             {
                 //move right
                 rb.velocity = Vector2.right * moveSpeed * Time.deltaTime;
+                spriteRenderer.flipX = false;
             }
 
         }
